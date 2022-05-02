@@ -1,8 +1,18 @@
-const init = {};
 
-export const reducer = (store = init, { type, payload }) => {
-  switch (type) {
-    default:
-      return store;
-  }
+import { LOGIN } from "./actions";
+const init = {
+  auth : false ,
+
 };
+
+export const authReducer = (store = init, action) => {
+    switch (action.type) {
+        case LOGIN:
+            return {
+                ...store,
+                auth: true,
+            };
+        default:
+            return store;
+    }
+}
